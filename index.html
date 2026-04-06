@@ -963,119 +963,129 @@ function getProduct() {
   return 'whole_husk';
 }
 
-function showResult() {
-  const email = document.getElementById('emailInput').value;
+async function showResult() {
+  const emailInput = document.getElementById('emailInput');
+  const nameInput = document.getElementById('nameInput');
+
+  const email = emailInput.value.trim();
+  const firstName = nameInput.value.trim();
+
+  emailInput.style.borderColor = '#d0d5dd';
+
   if (!email || !email.includes('@')) {
-    document.getElementById('emailInput').style.borderColor = '#dc2626';
-    document.getElementById('emailInput').focus();
+    emailInput.style.borderColor = '#dc2626';
+    emailInput.focus();
     return;
   }
 
-  // Klaviyo subscribe
-  const firstName = document.getElementById('nameInput').value || '';
-  const formData = {
-    token: 'XaesUS',
-    properties: {
-      '$email': email,
-      '$first_name': firstName,
-      'source': 'Psyllium Quiz'
-    },
-    list_id: 'VHfuin'
-  };
-  fetch('https://a.klaviyo.com/api/identify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: 'data=' + btoa(JSON.stringify(formData))
-  });
-  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XaesUS', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'revision': '2023-02-22' },
-    body: JSON.stringify({
-      data: {
-        type: 'subscription',
-        attributes: {
-          list_id: 'VHfuin',
-          email: email,
-          custom_source: 'Psyllium Quiz'
-        }
-      }
-    })
-  });
+  const submitBtn = document.querySelector('.btn-submit');
+  const originalBtnText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
 
-  document.getElementById('emailGate').classList.remove('active');
-  document.getElementById('resultScreen').classList.add('active');
+  try {
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, firstName })
+    });
 
-  for (let i = 1; i <= 5; i++) {
-    const d = document.getElementById('dot'+i);
-    const l = document.getElementById('line'+i);
-    if (d) { d.classList.remove('active'); d.classList.add('done'); }
-    if (l) l.classList.add('done');
-  }
+    const data = await response.json();
 
-  const key = getProduct();
-  const p = products[key];
+    if (!response.ok) {
+      console.error('Subscribe error:', data);
+      alert('Something went wrong. Please try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      return;
+    }
 
-  const whyHTML = p.why.map(w => `<li>${w}</li>`).join('');
+    document.getElementById('emailGate').classList.remove('active');
+    document.getElementById('resultScreen').classList.add('active');
 
-  const recipesHTML = p.recipes.map(r => `
-    <div class="recipe-card">
-      <img class="recipe-img" src="${r.img}" alt="${r.title}" loading="lazy" crossorigin="anonymous" onerror="this.outerHTML='<div class=\'recipe-img-fallback\'>${r.emoji}</div>'">
-      <div class="recipe-body">
-        <div class="recipe-title">${r.title}</div>
-        <div class="recipe-meta">${r.time} • ${r.meta}</div>
-        <div class="recipe-section-label">Ingredients</div>
-        <ul class="recipe-ingredients">
-          ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
-        </ul>
-        <div class="recipe-section-label">How to Make It</div>
-        <ol class="recipe-steps">
-          ${r.steps.map(s => `<li>${s}</li>`).join('')}
-        </ol>
-      </div>
-    </div>
-  `).join('');
+    for (let i = 1; i <= 5; i++) {
+      const d = document.getElementById('dot'+i);
+      const l = document.getElementById('line'+i);
+      if (d) { d.classList.remove('active'); d.classList.add('done'); }
+      if (l) l.classList.add('done');
+    }
 
-  const altHTML = p.alts.map(k => {
-    const a = products[k];
-    return `
-      <div class="alt-item">
-        <img src="${a.img}" alt="${a.name}"
-          onerror="this.src='https://placehold.co/150x150/f0f7eb/23843E?text=ZNF'">
-        <div class="alt-item-body">
-          <div class="alt-name">${a.name}</div>
-          <div class="alt-subtitle">${a.subtitle}</div>
-          <div class="alt-desc">${a.desc}</div>
-          <a class="alt-shop-btn" href="${a.url}" target="_blank">Shop Now →</a>
+    const key = getProduct();
+    const p = products[key];
+
+    const whyHTML = p.why.map(w => `<li>${w}</li>`).join('');
+    const tagsHTML = p.tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
+
+    const recipesHTML = p.recipes.map(r => `
+      <div class="recipe-card">
+        <img class="recipe-img" src="${r.img}" alt="${r.title}"
+          onerror="this.outerHTML='<div class=\'recipe-img-fallback\'>${r.emoji}</div>'">
+        <div class="recipe-body">
+          <div class="recipe-title">${r.title}</div>
+          <div class="recipe-meta">${r.time} • ${r.meta}</div>
+          <div class="recipe-section-label">Ingredients</div>
+          <ul class="recipe-ingredients">
+            ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
+          </ul>
+          <div class="recipe-section-label">How to Make It</div>
+          <ol class="recipe-steps">
+            ${r.steps.map(s => `<li>${s}</li>`).join('')}
+          </ol>
         </div>
       </div>
-    `;
-  }).join('');
+    `).join('');
 
-  const tagsHTML = p.tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
+    const altHTML = p.alts.map(k => {
+      const a = products[k];
+      const altTagsHTML = a.tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
+      return `
+        <div class="alt-item">
+          <img src="${a.img}" alt="${a.name}"
+            onerror="this.src='https://placehold.co/150x150/f0f7eb/23843E?text=ZNF'">
+          <div class="alt-item-body">
+            <div class="alt-name">${a.name}</div>
+            <div class="alt-subtitle">${a.subtitle}</div>
+            <div class="alt-desc">${a.desc}</div>
+            <div class="tag-chips" style="margin-bottom:16px;">${altTagsHTML}</div>
+            <a class="alt-shop-btn" href="${a.url}" target="_blank">Shop Now →</a>
+          </div>
+        </div>
+      `;
+    }).join('');
 
-  document.getElementById('resultContent').innerHTML = `
-    <div style="text-align:center;margin-bottom:4px;"><span class="best-match-tag">Best Match</span></div>
+    document.getElementById('resultContent').innerHTML = `
+      <div style="text-align:center;margin-bottom:4px;"><span class="best-match-tag">Best Match</span></div>
 
-    <div class="result-product-block">
-      <img class="result-product-img" src="${p.img}" alt="${p.name}"
-        onerror="this.src='https://placehold.co/220x220/f0f7eb/23843E?text=ZNF'">
-      <div class="result-product-body">
-        <div class="result-product-subtitle">${p.subtitle}</div>
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-        <div class="tag-chips">${tagsHTML}</div>
-        <a class="btn-shop" href="${p.url}" target="_blank">Shop Now →</a>
+      <div class="result-product-block">
+        <img class="result-product-img" src="${p.img}" alt="${p.name}"
+          onerror="this.src='https://placehold.co/220x220/f0f7eb/23843E?text=ZNF'">
+        <div class="result-product-body">
+          <div class="result-product-subtitle">${p.subtitle}</div>
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <div class="tag-chips">${tagsHTML}</div>
+          <a class="btn-shop" href="${p.url}" target="_blank">Shop Now →</a>
+        </div>
       </div>
-    </div>
 
-    <div class="section-title">🎁 3 recipes matched to your answers</div>
-    <div class="usage-grid">${recipesHTML}</div>
+      <div class="section-title">Why this is your match</div>
+      <div class="why-list-wrap"><ul class="why-list">${whyHTML}</ul></div>
 
-    <div class="also-label">Also Worth Trying</div>
-    <div class="alt-grid">${altHTML}</div>
-  `;
+      <div class="section-title">🎁 3 recipes matched to your answers</div>
+      <div class="usage-grid">${recipesHTML}</div>
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+      <div class="also-label">Also Worth Trying</div>
+      <div class="alt-grid">${altHTML}</div>
+    `;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (error) {
+    console.error('Subscribe error:', error);
+    alert('Something went wrong. Please try again.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
 }
 </script>
 </body>
