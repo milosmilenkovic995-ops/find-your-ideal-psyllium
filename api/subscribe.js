@@ -1,50 +1,46 @@
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const { email, firstName } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
+  const SITE_ID = process.env.PUBLIC_KLAVIYO_SITE_ID;
+  const LIST_ID = process.env.KLAVIYO_LIST_ID;
+
   try {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
-    const email = body.email;
-    const firstName = body.firstName;
-
-    if (!email || typeof email !== 'string') {
-      return res.status(400).json({ error: 'Email is required' });
-    }
-
-    if (!process.env.KLAVIYO_PRIVATE_KEY) {
-      return res.status(500).json({ error: 'Missing KLAVIYO_PRIVATE_KEY' });
-    }
-
-    const response = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
+    const response = await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + SITE_ID, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Revision': '2024-10-15',
-        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_PRIVATE_KEY}`
+        'revision': '2023-12-15'
       },
       body: JSON.stringify({
         data: {
-          type: 'profile-subscription-bulk-create-job',
+          type: 'subscription',
           attributes: {
-            profiles: {
-              data: [
-                {
-                  type: 'profile',
-                  attributes: {
-                    email: email,
-                    first_name: firstName || ''
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  first_name: firstName || '',
+                  properties: {
+                    source: 'Psyllium Quiz'
                   }
                 }
-              ]
+              }
             }
           },
           relationships: {
             list: {
               data: {
                 type: 'list',
-                id: 'VHfuin'
+                id: LIST_ID
               }
             }
           }
@@ -52,23 +48,16 @@ module.exports = async function handler(req, res) {
       })
     });
 
-    const data = await response.json().catch(() => null);
-
     if (!response.ok) {
-      return res.status(response.status).json({
-        error: 'Klaviyo request failed',
-        details: data
-      });
+      const errorData = await response.text();
+      console.error('Klaviyo error:', errorData);
+      return res.status(500).json({ error: 'Klaviyo subscription failed' });
     }
 
-    return res.status(200).json({
-      success: true,
-      data: data
-    });
-  } catch (err) {
-    return res.status(500).json({
-      error: 'Internal server error',
-      details: err.message
-    });
+    return res.status(200).json({ success: true });
+
+  } catch (error) {
+    console.error('Handler error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
   }
-};
+}
