@@ -258,29 +258,30 @@ nav a.specials { color: #e07b00; font-weight: 600; }
   padding: 24px 20px 24px;
 }
 .alt-item img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 180px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 16px;
-  background: transparent;
+  padding: 12px;
+  background: #f9f9f9;
 }
 .alt-item-body { display: flex; flex-direction: column; flex: 1; align-items: center; }
 .alt-name { font-size: 16px; font-weight: 800; color: #0d1f12; margin-bottom: 4px; line-height: 1.3; }
 .alt-subtitle { font-size: 13px; color: #999; margin-bottom: 10px; }
 .alt-desc { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 14px; flex: 1; }
-.alt-item a {
-  display: inline-block;
+.alt-shop-btn {
+  display: block;
   background: #23843E;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   font-weight: 700;
-  padding: 11px 24px;
+  padding: 12px 20px;
   border-radius: 8px;
   text-decoration: none;
-  margin-top: auto;
+  text-align: center;
+  margin-top: 14px;
 }
-.alt-item a:hover { background: #1a6330; }
+.alt-shop-btn:hover { background: #1a6330; }
 
 .section-title { font-size: 13px; font-weight: 700; color: #1a1a1a; margin: 18px 0 10px; }
 .why-list { list-style: none; text-align: left; display: inline-block; }
@@ -312,7 +313,7 @@ nav a.specials { color: #e07b00; font-weight: 600; }
 .recipe-steps li strong { font-weight: 700; }
 
 .alt-item { border: 1.5px solid #e8e8e8; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
-.alt-item img { width: 100%; height: 120px; object-fit: cover; background: #f0f7eb; display: block; }
+.alt-item img { width: 100%; height: 180px; object-fit: contain; background: #f9f9f9; display: block; padding: 12px; }
 .alt-item-body { padding: 12px 14px 14px; display: flex; flex-direction: column; flex: 1; }
 .alt-name { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; line-height: 1.3; }
 .alt-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 10px; flex: 1; }
@@ -460,7 +461,7 @@ footer {
 <header>
   <a href="https://www.znaturalfoods.com" class="logo-wrap">
     <img
-      src="https://find-your-psyllium.vercel.app/images/znf-logo-original.png"
+      src="images/logo.png"
       alt="Z Natural Foods"
       onerror="this.onerror=null;this.src='https://cdn.shopify.com/s/files/1/0255/3827/0855/files/ZNF-LOGO-2024_new.png';"
     >
@@ -625,7 +626,7 @@ footer {
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand-name">Z Natural Foods</div>
+      <img src="images/logo.png" alt="Z Natural Foods" style="height:42px;margin-bottom:14px;display:block;">
       <div class="footer-social">
         <a href="#" title="Facebook">f</a>
         <a href="#" title="X">𝕏</a>
@@ -702,9 +703,9 @@ const products = {
     name: "Whole Psyllium Husk",
     subtitle: "Traditional • Minimally Processed",
     tags: ["Whole Fiber", "Gut Health", "Heart Support"],
-    desc: "The least processed form of psyllium. The intact husk creates a thick, viscous gel that slows digestion, feeds good gut bacteria, and keeps you full longer. Best for digestion, heart health, and appetite control.",
-    img: "https://cdn.shopify.com/s/files/1/0255/3827/0855/products/whole-psyllium-husk.jpg",
-    url: "https://www.znaturalfoods.com/products/whole-psyllium-husk",
+    desc: "Minimally processed whole husk that forms a thick gel — ideal for digestion, heart health, and appetite control.",
+    img: "images/whole-psyllium-husk.png",
+    url: "https://www.znaturalfoods.com/products/psyllium-husk-whole-flakes-organic",
     why: [
       "Whole husks form a thicker gel — stronger effect on cholesterol and blood sugar",
       "Higher fiber density per gram than powder form",
@@ -768,9 +769,9 @@ const products = {
     name: "Psyllium Husk Powder (Organic)",
     subtitle: "Organic • Fine Powder",
     tags: ["USDA Organic", "Baking Ready", "Smooth Texture"],
-    desc: "Finely milled organic psyllium husk. Dissolves more smoothly in liquids and blends effortlessly into recipes. Ideal if you find whole husk too coarse or want to use psyllium in baking.",
-    img: "https://cdn.shopify.com/s/files/1/0255/3827/0855/products/psyllium-husk-powder-organic.jpg",
-    url: "https://www.znaturalfoods.com/products/psyllium-husk-powder",
+    desc: "Finely milled organic psyllium. Dissolves invisibly into drinks, food, and baked goods.",
+    img: "images/psyllium-powder-organic.png",
+    url: "https://www.znaturalfoods.com/products/psyllium-husk-powder-organic",
     why: [
       "Fine powder dissolves almost invisibly into drinks and food",
       "USDA certified organic — no pesticides, no synthetic inputs",
@@ -832,12 +833,12 @@ const products = {
     alts: ['whole_husk', 'powder_flavored']
   },
   powder_flavored: {
-    name: "Psyllium Husk Powder — Orange Flavor",
-    subtitle: "Flavored • Easy Daily Routine",
+    name: "Psyllium Husk Powder — Pineapple Orange",
+    subtitle: "Pineapple Orange • Easy Daily Routine",
     tags: ["Natural Flavor", "Beginner Friendly", "Easy to Take"],
-    desc: "All the benefits of psyllium powder with a light natural orange flavor. Makes the daily fiber routine something you actually look forward to. Great for those new to psyllium.",
-    img: "https://cdn.shopify.com/s/files/1/0255/3827/0855/products/psyllium-husk-powder-orange.jpg",
-    url: "https://www.znaturalfoods.com/products/psyllium-husk-powder",
+    desc: "Full fiber benefits with a natural pineapple-orange flavor. The easiest way to make psyllium a daily habit.",
+    img: "images/psyllium-powder-flavored.png",
+    url: "https://www.znaturalfoods.com/products/psyllium-husk-powder-pineapple-orange-flavor",
     why: [
       "Natural orange flavor makes it easy to take consistently every day",
       "Same soluble fiber content as unflavored powder — no compromise on efficacy",
@@ -938,28 +939,27 @@ function getProduct() {
   const texture = answers[3];
   const organic = answers[4];
 
-  // Baking = powder
-  if (reason === 'baking' || format === 'baking') return 'powder_organic';
-
-  // Wants flavor
+  // FLAVORED — wants flavor or new to psyllium
   if (texture === 'flavor') return 'powder_flavored';
+  if (format === 'drink' && texture === 'dontcare' && organic === 'nocare') return 'powder_flavored';
 
-  // Wants whole/minimally processed
-  if (texture === 'whole') return 'whole_husk';
-
-  // Smooth + drink → powder organic (or flavored if new)
-  if (texture === 'smooth' && format === 'drink') return 'powder_organic';
-
-  // Heart health or appetite → whole husk (thicker gel = better effect)
-  if (reason === 'heart' || reason === 'appetite') return 'whole_husk';
-
-  // Digestion + food → whole husk
-  if (reason === 'digestion' && format === 'food') return 'whole_husk';
-
-  // Organic matters → powder organic
+  // POWDER ORGANIC — baking, smooth texture, organic must, food mixing
+  if (reason === 'baking' || format === 'baking') return 'powder_organic';
+  if (texture === 'smooth') return 'powder_organic';
   if (organic === 'must') return 'powder_organic';
+  if (format === 'food' && texture !== 'whole') return 'powder_organic';
 
-  // Default
+  // WHOLE HUSK — traditional, heart health, appetite, whole texture, bulk
+  if (texture === 'whole') return 'whole_husk';
+  if (reason === 'heart' || reason === 'appetite') return 'whole_husk';
+  if (organic === 'bulk') return 'whole_husk';
+  if (reason === 'digestion' && format === 'whatever') return 'whole_husk';
+
+  // Defaults by primary reason
+  if (reason === 'digestion') return 'whole_husk';
+  if (reason === 'general' && format === 'drink') return 'powder_flavored';
+  if (reason === 'general') return 'powder_organic';
+
   return 'whole_husk';
 }
 
@@ -970,6 +970,37 @@ function showResult() {
     document.getElementById('emailInput').focus();
     return;
   }
+
+  // Klaviyo subscribe
+  const firstName = document.getElementById('nameInput').value || '';
+  const formData = {
+    token: 'XaesUS',
+    properties: {
+      '$email': email,
+      '$first_name': firstName,
+      'source': 'Psyllium Quiz'
+    },
+    list_id: 'VHfuin'
+  };
+  fetch('https://a.klaviyo.com/api/identify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'data=' + btoa(JSON.stringify(formData))
+  });
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XaesUS', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'revision': '2023-02-22' },
+    body: JSON.stringify({
+      data: {
+        type: 'subscription',
+        attributes: {
+          list_id: 'VHfuin',
+          email: email,
+          custom_source: 'Psyllium Quiz'
+        }
+      }
+    })
+  });
 
   document.getElementById('emailGate').classList.remove('active');
   document.getElementById('resultScreen').classList.add('active');
@@ -1006,7 +1037,6 @@ function showResult() {
 
   const altHTML = p.alts.map(k => {
     const a = products[k];
-    const altTagsHTML = a.tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
     return `
       <div class="alt-item">
         <img src="${a.img}" alt="${a.name}"
@@ -1015,8 +1045,7 @@ function showResult() {
           <div class="alt-name">${a.name}</div>
           <div class="alt-subtitle">${a.subtitle}</div>
           <div class="alt-desc">${a.desc}</div>
-          <div class="tag-chips" style="margin-bottom:16px;">${altTagsHTML}</div>
-          <a href="${a.url}" target="_blank">Shop Now →</a>
+          <a class="alt-shop-btn" href="${a.url}" target="_blank">Shop Now →</a>
         </div>
       </div>
     `;
