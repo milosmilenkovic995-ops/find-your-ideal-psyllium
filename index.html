@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Perfect Psyllium — Z Natural Foods</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #f5f5f5; color: #1a1a1a; font-size: 15px; }
+
+/* INFO BAR — thin top strip */
+.info-bar {
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+  padding: 7px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #555;
+}
+.info-bar-left { display: flex; align-items: center; gap: 22px; }
+.info-bar-item { display: flex; align-items: center; gap: 5px; }
+.info-bar-item img { width: 14px; height: 14px; }
+.info-bar-right { display: flex; align-items: center; gap: 6px; }
+.stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
+.review-link { font-weight: 700; font-size: 12px; color: #1a1a1a; text-decoration: none; letter-spacing: 0.04em; }
+
+/* PROMO BAR */
+.promo-bar {
+  background: #23843E;
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.promo-bar a { color: #fff; text-decoration: none; }
+
+/* HEADER */
+header {
+  background: #fff;
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+  gap: 16px;
+}
+.logo-wrap { flex-shrink: 0; }
+.logo-wrap img { height: 48px; display: block; }
+nav { display: flex; align-items: center; gap: 26px; }
+nav a { font-size: 14px; font-weight: 400; color: #222; text-decoration: none; white-space: nowrap; }
+nav a:hover { color: #23843E; }
+nav a.specials { color: #e07b00; font-weight: 600; }
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #999;
+  cursor: text;
+  min-width: 130px;
+  background: #fff;
+}
+.search-box svg { flex-shrink: 0; }
+
+.main { background: #f5f5f5; padding: 48px 16px 60px; min-height: 60vh; }
+
+.hero { text-align: center; margin-bottom: 28px; }
+.hero h1 { font-size: 30px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+.hero h1 span { color: #23843E; }
+.hero p { font-size: 15px; color: #555; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+.progress { display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+.step-bubble { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #ccc; background: #fff; color: #aaa; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; transition: all 0.25s; flex-shrink: 0; }
+.step-bubble.active { border-color: #23843E; color: #23843E; }
+.step-bubble.done { background: #23843E; border-color: #23843E; color: #fff; }
+.step-line { width: 56px; height: 2px; background: #ddd; transition: background 0.25s; }
+.step-line.done { background: #23843E; }
+
+.quiz-wrap { max-width: 700px; margin: 0 auto; }
+.quiz-card { background: #fff; border-radius: 12px; padding: 36px 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+
+.q-label { font-size: 12px; font-weight: 700; color: #23843E; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.q-title { font-size: 19px; font-weight: 700; color: #1a1a1a; margin-bottom: 22px; line-height: 1.35; }
+
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.option-btn { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; padding: 17px 16px; text-align: left; cursor: pointer; display: flex; align-items: flex-start; gap: 13px; transition: all 0.18s; font-family: inherit; width: 100%; }
+.option-btn:hover { border-color: #23843E; background: #f7fbf3; }
+.option-btn.selected { border-color: #23843E; background: #f0f7eb; }
+.opt-icon-wrap { width: 40px; height: 40px; border-radius: 8px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; }
+.opt-text { flex: 1; text-align: left; }
+.opt-main { font-size: 13.5px; font-weight: 600; color: #1a1a1a; margin-bottom: 3px; line-height: 1.3; }
+.opt-sub { font-size: 12px; color: #777; line-height: 1.45; }
+
+/* EMAIL GATE */
+.email-gate { text-align: center; padding: 8px 0; }
+.email-gate .gate-icon { font-size: 48px; margin-bottom: 16px; line-height: 1; }
+.email-gate h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.email-gate .gift-line {
+  font-size: 26px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.email-gate .gift-line strong { font-weight: 800; }
+.email-gate .sub {
+  font-size: 14.5px;
+  color: #666;
+  margin-bottom: 28px;
+  line-height: 1.6;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gate-fields { display: flex; flex-direction: column; gap: 12px; max-width: 440px; margin: 0 auto 14px; }
+.gate-fields input {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.gate-fields input::placeholder { color: #aaa; }
+.gate-fields input:focus { border-color: #23843E; }
+.btn-submit {
+  width: 100%;
+  max-width: 440px;
+  display: block;
+  margin: 0 auto;
+  background: #23843E;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.01em;
+}
+.btn-submit:hover { background: #1a6330; }
+.privacy { font-size: 12.5px; color: #888; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+
+/* RESULT */
+/* BEST MATCH CARD */
+.best-match-tag {
+  display: inline-block;
+  background: #23843E;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.result-product-block {
+  border: 2px solid #23843E;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: #f9fdf9;
+  text-align: center;
+  padding: 28px 32px 32px;
+}
+.result-product-img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px;
+  background: transparent;
+}
+.result-product-subtitle {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.result-product-body h3 {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #0d1f12;
+  line-height: 1.2;
+}
+.result-product-body p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tag-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 22px; }
+.tag-chip {
+  border: 1.5px solid #23843E;
+  color: #23843E;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: transparent;
+}
+.btn-shop {
+  display: inline-block;
+  background: #23843E;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.btn-shop:hover { background: #1a6330; }
+
+/* ALSO WORTH TRYING */
+.also-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #556;
+  text-align: center;
+  margin: 32px 0 16px;
+}
+.alt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.alt-item {
+  border: 1.5px solid #e8e8e8;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  text-align: center;
+  padding: 24px 20px 24px;
+}
+.alt-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 16px;
+  background: transparent;
+}
+.alt-item-body { display: flex; flex-direction: column; flex: 1; align-items: center; }
+.alt-name { font-size: 16px; font-weight: 800; color: #0d1f12; margin-bottom: 4px; line-height: 1.3; }
+.alt-subtitle { font-size: 13px; color: #999; margin-bottom: 10px; }
+.alt-desc { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.alt-item a {
+  display: inline-block;
+  background: #23843E;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: auto;
+}
+.alt-item a:hover { background: #1a6330; }
+
+.section-title { font-size: 13px; font-weight: 700; color: #1a1a1a; margin: 18px 0 10px; }
+.why-list { list-style: none; text-align: left; display: inline-block; }
+.why-list li { display: flex; gap: 8px; font-size: 13.5px; color: #444; padding: 7px 0; border-bottom: 1px solid #f0f0f0; line-height: 1.5; align-items: flex-start; }
+.why-list li:last-child { border-bottom: none; }
+.why-list li::before { content: '✓'; color: #23843E; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.why-list-wrap { text-align: center; margin-bottom: 18px; }
+
+.usage-grid { display: flex; flex-direction: column; gap: 20px; margin-top: 4px; }
+.recipe-card { border: 1px solid #e8e8e8; border-radius: 12px; overflow: hidden; background: #fff; }
+.recipe-img-fallback { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 56px; background: linear-gradient(135deg, #e8f5e0 0%, #c8e6c9 100%); }
+.recipe-img { width: 100%; height: 200px; object-fit: cover; display: block; background: #dceedd; }
+.recipe-body { padding: 16px 18px 20px; }
+.recipe-title { font-size: 17px; font-weight: 800; color: #1a1a1a; margin-bottom: 3px; }
+.recipe-meta { font-size: 12.5px; color: #888; margin-bottom: 14px; }
+.recipe-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #23843E;
+  margin-bottom: 8px;
+}
+.recipe-ingredients { list-style: disc; padding-left: 18px; margin-bottom: 14px; }
+.recipe-ingredients li { font-size: 13.5px; color: #333; line-height: 1.6; margin-bottom: 2px; }
+.recipe-ingredients li strong { font-weight: 700; }
+.recipe-steps { list-style: decimal; padding-left: 18px; }
+.recipe-steps li { font-size: 13.5px; color: #333; line-height: 1.65; margin-bottom: 4px; }
+.recipe-steps li strong { font-weight: 700; }
+
+.alt-item { border: 1.5px solid #e8e8e8; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.alt-item img { width: 100%; height: 120px; object-fit: cover; background: #f0f7eb; display: block; }
+.alt-item-body { padding: 12px 14px 14px; display: flex; flex-direction: column; flex: 1; }
+.alt-name { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; line-height: 1.3; }
+.alt-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 10px; flex: 1; }
+.alt-item a { font-size: 12.5px; font-weight: 600; color: #23843E; text-decoration: none; }
+.alt-item a:hover { text-decoration: underline; }
+
+
+footer {
+  background: #314158;
+  padding: 48px 40px 0;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 40px;
+}
+.footer-brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 14px;
+  font-family: Georgia, serif;
+}
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.footer-social a {
+  color: #8d9db5;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.15s;
+  line-height: 1;
+}
+.footer-social a:hover { color: #fff; }
+.footer-brand-desc {
+  font-size: 13px;
+  color: #8d9db5;
+  line-height: 1.75;
+  max-width: 240px;
+}
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: #8d9db5;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: #fff; }
+.footer-divider {
+  border: none;
+  border-top: 1px solid #3d4f68;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-disclaimer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  font-size: 12px;
+  color: #6b7f99;
+  line-height: 1.7;
+}
+.footer-bottom {
+  border-top: 1px solid #3d4f68;
+  padding: 18px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6b7f99;
+}
+.footer-payments { display: flex; align-items: center; gap: 8px; }
+.payment-badge {
+  background: transparent;
+  color: #8d9db5;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid #4a5f7a;
+  letter-spacing: 0.02em;
+}
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+@media (max-width: 600px) {
+  .quiz-card { padding: 22px 18px; }
+  .options-grid, .usage-grid { grid-template-columns: 1fr; }
+  nav { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .email-row { flex-direction: column; }
+  .result-product-block { flex-direction: column; }
+  .blog-cta { flex-direction: column; text-align: center; }
+  .blog-cta a { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="info-bar-left">
+    <span class="info-bar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#e07b00" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#e07b00" stroke-width="2" stroke-linecap="round"/></svg>
+      Free shipping for orders within the contiguous US over $75
+    </span>
+    <span class="info-bar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#555" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
+      Mon-Fri 9AM-5:30PM EST
+    </span>
+    <span class="info-bar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#555" stroke-width="2"/></svg>
+      <a href="tel:8889636637" style="color:inherit;text-decoration:none;">(888) 963-6637</a>
+    </span>
+  </div>
+  <div class="info-bar-right">
+    <span class="stars">★★★★★</span>
+    <a href="https://www.znaturalfoods.com/pages/reviews" class="review-link">6293 REVIEWS</a>
+  </div>
+</div>
+
+<!-- PROMO BAR -->
+<div class="promo-bar"><a href="https://www.znaturalfoods.com/specials">Be Sure to Check Out All of Our Specials!</a></div>
+
+<!-- HEADER -->
+<header>
+  <a href="https://www.znaturalfoods.com" class="logo-wrap">
+    <img
+      src="https://find-your-psyllium.vercel.app/images/znf-logo-original.png"
+      alt="Z Natural Foods"
+      onerror="this.onerror=null;this.src='https://cdn.shopify.com/s/files/1/0255/3827/0855/files/ZNF-LOGO-2024_new.png';"
+    >
+  </a>
+  <nav>
+    <a href="https://www.znaturalfoods.com/collections">Categories</a>
+    <a href="https://www.znaturalfoods.com/pages/health-concerns">Health Concerns</a>
+    <a href="https://www.znaturalfoods.com/specials" class="specials">🔥 Specials</a>
+    <a href="https://www.znaturalfoods.com/blogs/articles">Articles</a>
+    <a href="https://www.znaturalfoods.com/collections/bulk">Bulk</a>
+    <a href="https://www.znaturalfoods.com/pages/about-us">About</a>
+  </nav>
+  <div class="search-box">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    Search
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="hero">
+    <h1>Find Your Perfect <span>Psyllium</span></h1>
+    <p>Answer 4 quick questions and we will match you with the right psyllium husk product for your needs — plus 3 ways to use it.</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress">
+    <div class="step-bubble active" id="dot1">1</div>
+    <div class="step-line" id="line1"></div>
+    <div class="step-bubble" id="dot2">2</div>
+    <div class="step-line" id="line2"></div>
+    <div class="step-bubble" id="dot3">3</div>
+    <div class="step-line" id="line3"></div>
+    <div class="step-bubble" id="dot4">4</div>
+    <div class="step-line" id="line4"></div>
+    <div class="step-bubble" id="dot5" style="font-size:16px;">✉</div>
+  </div>
+
+  <div class="quiz-wrap">
+
+    <!-- Q1: Main reason -->
+    <div class="quiz-card screen active" id="q1">
+      <div class="q-label">Question 1 of 4</div>
+      <div class="q-title">What is your main reason for taking psyllium?</div>
+      <div class="options-grid">
+        <button class="option-btn" onclick="answer(1,'digestion',this)">
+          <div class="opt-icon-wrap">🫄</div>
+          <div class="opt-text"><div class="opt-main">Better digestion and regularity</div><div class="opt-sub">Less bloating, more consistency</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(1,'heart',this)">
+          <div class="opt-icon-wrap">❤️</div>
+          <div class="opt-text"><div class="opt-main">Heart health and cholesterol support</div><div class="opt-sub">Doctor recommended or proactive choice</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(1,'appetite',this)">
+          <div class="opt-icon-wrap">⚖️</div>
+          <div class="opt-text"><div class="opt-main">Appetite control and feeling full longer</div><div class="opt-sub">Manage cravings and portions naturally</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(1,'baking',this)">
+          <div class="opt-icon-wrap">🍞</div>
+          <div class="opt-text"><div class="opt-main">Baking and cooking (gluten-free)</div><div class="opt-sub">Need a binding agent for GF baking</div></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q2: How to take it -->
+    <div class="quiz-card screen" id="q2">
+      <div class="q-label">Question 2 of 4</div>
+      <div class="q-title">How would you prefer to take it?</div>
+      <div class="options-grid">
+        <button class="option-btn" onclick="answer(2,'drink',this)">
+          <div class="opt-icon-wrap">🥤</div>
+          <div class="opt-text"><div class="opt-main">Mixed into a drink</div><div class="opt-sub">Water, juice, or smoothie</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(2,'food',this)">
+          <div class="opt-icon-wrap">🥣</div>
+          <div class="opt-text"><div class="opt-main">Stirred into food</div><div class="opt-sub">Oatmeal, yogurt, cereal</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(2,'baking',this)">
+          <div class="opt-icon-wrap">🧁</div>
+          <div class="opt-text"><div class="opt-main">As a baking ingredient</div><div class="opt-sub">Bread, muffins, pizza dough</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(2,'whatever',this)">
+          <div class="opt-icon-wrap">🤷</div>
+          <div class="opt-text"><div class="opt-main">Whatever works best</div><div class="opt-sub">Just tell me what to do</div></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q3: Texture & taste -->
+    <div class="quiz-card screen" id="q3">
+      <div class="q-label">Question 3 of 4</div>
+      <div class="q-title">How do you feel about texture and taste?</div>
+      <div class="options-grid">
+        <button class="option-btn" onclick="answer(3,'smooth',this)">
+          <div class="opt-icon-wrap">✨</div>
+          <div class="opt-text"><div class="opt-main">Smooth and unnoticeable</div><div class="opt-sub">Fine powder that dissolves completely</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(3,'flavor',this)">
+          <div class="opt-icon-wrap">🍊</div>
+          <div class="opt-text"><div class="opt-main">A little flavor would be nice</div><div class="opt-sub">Something that tastes good</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(3,'whole',this)">
+          <div class="opt-icon-wrap">🌿</div>
+          <div class="opt-text"><div class="opt-main">Whole, minimally processed</div><div class="opt-sub">Flakes — closer to nature</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(3,'dontcare',this)">
+          <div class="opt-icon-wrap">👍</div>
+          <div class="opt-text"><div class="opt-main">Does not matter to me</div><div class="opt-sub">Results over taste</div></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q4: Organic -->
+    <div class="quiz-card screen" id="q4">
+      <div class="q-label">Question 4 of 4</div>
+      <div class="q-title">How important is organic certification to you?</div>
+      <div class="options-grid">
+        <button class="option-btn" onclick="answer(4,'must',this)">
+          <div class="opt-icon-wrap">🏷️</div>
+          <div class="opt-text"><div class="opt-main">Very important — must be certified organic</div><div class="opt-sub">No pesticides, no compromises</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(4,'nice',this)">
+          <div class="opt-icon-wrap">👌</div>
+          <div class="opt-text"><div class="opt-main">Nice to have, but not a dealbreaker</div><div class="opt-sub">Quality matters more than labels</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(4,'nocare',this)">
+          <div class="opt-icon-wrap">🎯</div>
+          <div class="opt-text"><div class="opt-main">Does not matter — I care about effectiveness</div><div class="opt-sub">Just give me what works</div></div>
+        </button>
+        <button class="option-btn" onclick="answer(4,'bulk',this)">
+          <div class="opt-icon-wrap">📦</div>
+          <div class="opt-text"><div class="opt-main">I buy in bulk — best value wins</div><div class="opt-sub">I go through it fast</div></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- EMAIL GATE -->
+    <div class="quiz-card screen" id="emailGate">
+      <div class="email-gate">
+        <div class="gate-icon">🌾</div>
+        <h2>Your match is ready!</h2>
+        <div class="gift-line">Surprise <strong>GIFT</strong> — you got <strong>$10 OFF</strong></div>
+        <p class="sub">Subscribe to get your coupon code and 3 psyllium recipes matched to your preferences.</p>
+        <div class="gate-fields">
+          <input type="text" id="nameInput" placeholder="First name (optional)">
+          <input type="email" id="emailInput" placeholder="Email address">
+        </div>
+        <button class="btn-submit" onclick="showResult()">Get My $10 OFF Code</button>
+        <div class="privacy">🔒 No spam, ever. Unsubscribe anytime.</div>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="quiz-card screen" id="resultScreen">
+      <div id="resultContent"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Z Natural Foods</div>
+      <div class="footer-social">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="X">𝕏</a>
+        <a href="#" title="Pinterest">p</a>
+        <a href="#" title="Instagram">◎</a>
+        <a href="#" title="Rumble">▶</a>
+        <a href="#" title="Contrast">◑</a>
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Music">♫</a>
+      </div>
+      <p class="footer-brand-desc">Z Natural Foods is dedicated to bringing you the finest quality in hard-to-find whole, all natural and organic foods.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Catalog</h4>
+      <a href="https://www.znaturalfoods.com/collections">All Products</a>
+      <a href="https://www.znaturalfoods.com/pages/bulk">Wholesale, Bulk & Custom Blends</a>
+      <a href="https://www.znaturalfoods.com/specials">Specials</a>
+      <a href="https://www.znaturalfoods.com/collections/new">New Products</a>
+      <a href="https://www.znaturalfoods.com/pages/reviews">Reviews</a>
+    </div>
+    <div class="footer-col">
+      <h4>My Account</h4>
+      <a href="https://www.znaturalfoods.com/account/register">Register</a>
+      <a href="https://www.znaturalfoods.com/account">My Address</a>
+      <a href="https://www.znaturalfoods.com/account/orders">Order History</a>
+      <a href="https://www.znaturalfoods.com/account">Recurring Deliveries</a>
+      <a href="https://www.znaturalfoods.com/pages/rewards">Rewards Program</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="https://www.znaturalfoods.com/pages/about-us">About Us</a>
+      <a href="https://www.znaturalfoods.com/pages/contact-us">Contact Us</a>
+      <a href="https://www.znaturalfoods.com/pages/faq">FAQs</a>
+      <a href="https://www.znaturalfoods.com/pages/shipping">Shipping</a>
+      <a href="https://www.znaturalfoods.com/blogs/news">News & Media</a>
+      <a href="https://www.znaturalfoods.com/pages/vendors">Vendors</a>
+    </div>
+    <div class="footer-col">
+      <h4>Policies</h4>
+      <a href="https://www.znaturalfoods.com/pages/privacy-policy">Privacy Policy</a>
+      <a href="https://www.znaturalfoods.com/pages/california-prop65">California Prop65</a>
+      <a href="https://www.znaturalfoods.com/pages/legal">Legal Notice Disclaimer</a>
+      <a href="https://www.znaturalfoods.com/pages/legal">Terms of Use</a>
+      <a href="https://www.znaturalfoods.com/pages/privacy-policy">Your Privacy Choices</a>
+      <a href="https://www.znaturalfoods.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-disclaimer">
+    * Disclaimer: Comments, reviews, testimonials, ratings, and social media posts reflect individual customer experiences and opinions only. They do not constitute guarantees, typical results, medical claims, or representations that any person will achieve the same outcome.
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <span>Copyright © 2026, Z Natural Foods, LLC. | ® All Rights Reserved.</span>
+    <div class="footer-payments">
+      <span class="payment-badge">VISA</span>
+      <span class="payment-badge">PayPal</span>
+      <span class="payment-badge">AMEX</span>
+      <span class="payment-badge">Mastercard</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const answers = {};
+
+// Product database — Whole Husk vs Powder (the blog's topic)
+const products = {
+  whole_husk: {
+    name: "Whole Psyllium Husk",
+    subtitle: "Traditional • Minimally Processed",
+    tags: ["Whole Fiber", "Gut Health", "Heart Support"],
+    desc: "The least processed form of psyllium. The intact husk creates a thick, viscous gel that slows digestion, feeds good gut bacteria, and keeps you full longer. Best for digestion, heart health, and appetite control.",
+    img: "https://cdn.shopify.com/s/files/1/0255/3827/0855/products/whole-psyllium-husk.jpg",
+    url: "https://www.znaturalfoods.com/products/whole-psyllium-husk",
+    why: [
+      "Whole husks form a thicker gel — stronger effect on cholesterol and blood sugar",
+      "Higher fiber density per gram than powder form",
+      "Minimally processed — closest to its natural state"
+    ],
+    recipes: [
+      {
+        title: "Morning Psyllium Fiber Drink", emoji: "🥤",
+        time: "2 min",
+        meta: "The simplest daily routine — just mix and drink.",
+        img: "https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compresshttps://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compress&cs=tinysrgb&w=800cs=tinysrgbhttps://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compress&cs=tinysrgb&w=800w=800",
+        ingredients: [
+          "1 tsp <strong>Whole Psyllium Husk</strong>",
+          "8 oz cold water or juice",
+          "Optional: squeeze of lemon"
+        ],
+        steps: [
+          "Stir psyllium husk into water — drink immediately before it thickens.",
+          "Follow with an additional 8 oz of water.",
+          "Take daily, ideally 30 minutes before a meal."
+        ]
+      },
+      {
+        title: "Psyllium Oatmeal Bowl", emoji: "🥣",
+        time: "5 min",
+        meta: "A little more filling — turns breakfast into a proper fiber meal.",
+        img: "https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "½ cup rolled oats",
+          "1 tsp <strong>Whole Psyllium Husk</strong>",
+          "1 cup hot water or milk",
+          "Berries, banana, or honey to top"
+        ],
+        steps: [
+          "Cook oats in hot water or milk as usual.",
+          "Stir in the psyllium husk right before serving — it thickens as it cools.",
+          "Add your toppings and enjoy immediately."
+        ]
+      },
+      {
+        title: "Psyllium Green Smoothie", emoji: "🥬",
+        time: "4 min",
+        meta: "Adds fiber and body without changing the flavor.",
+        img: "https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "1 cup spinach or kale",
+          "1 frozen banana",
+          "1 tsp <strong>Whole Psyllium Husk</strong>",
+          "1 cup almond milk or water"
+        ],
+        steps: [
+          "Add all ingredients to a blender.",
+          "Blend on high for 30–45 seconds until smooth.",
+          "Drink immediately — psyllium will thicken the longer it sits."
+        ]
+      }
+    ],
+    alts: ['powder_organic', 'powder_flavored']
+  },
+  powder_organic: {
+    name: "Psyllium Husk Powder (Organic)",
+    subtitle: "Organic • Fine Powder",
+    tags: ["USDA Organic", "Baking Ready", "Smooth Texture"],
+    desc: "Finely milled organic psyllium husk. Dissolves more smoothly in liquids and blends effortlessly into recipes. Ideal if you find whole husk too coarse or want to use psyllium in baking.",
+    img: "https://cdn.shopify.com/s/files/1/0255/3827/0855/products/psyllium-husk-powder-organic.jpg",
+    url: "https://www.znaturalfoods.com/products/psyllium-husk-powder",
+    why: [
+      "Fine powder dissolves almost invisibly into drinks and food",
+      "USDA certified organic — no pesticides, no synthetic inputs",
+      "Best for baking: replaces eggs, binds gluten-free doughs perfectly"
+    ],
+    recipes: [
+      {
+        title: "Gluten-Free Psyllium Flatbread", emoji: "🫓",
+        time: "15 min",
+        meta: "Crispy, chewy, and completely gluten-free — psyllium is the key binder.",
+        img: "https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "1 cup almond flour or rice flour",
+          "2 tsp <strong>Psyllium Husk Powder (Organic)</strong>",
+          "½ tsp salt",
+          "½ cup warm water",
+          "1 tbsp olive oil"
+        ],
+        steps: [
+          "Mix the flour, psyllium powder, and salt in a bowl.",
+          "Add warm water and olive oil — stir until a dough forms. Let rest 2 minutes.",
+          "Roll thin between two sheets of parchment and cook in a dry pan over medium heat, 3–4 min per side."
+        ]
+      },
+      {
+        title: "Invisible Fiber Smoothie", emoji: "🫙",
+        time: "3 min",
+        meta: "You won't taste it, won't see it — but your gut will thank you.",
+        img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "1 cup almond milk or oat milk",
+          "1 tsp <strong>Psyllium Husk Powder (Organic)</strong>",
+          "1 frozen banana",
+          "Handful of spinach",
+          "Optional: 1 tbsp nut butter"
+        ],
+        steps: [
+          "Add all ingredients to a blender.",
+          "Blend for 30 seconds until completely smooth.",
+          "Drink immediately — the powder blends in completely with no texture."
+        ]
+      },
+      {
+        title: "Psyllium Egg Replacer (for Baking)",
+        time: "2 min",
+        meta: "Replace 1 egg in any baked recipe — simple and effective.",
+        img: "https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "1 tsp <strong>Psyllium Husk Powder (Organic)</strong>",
+          "3 tbsp warm water"
+        ],
+        steps: [
+          "Mix psyllium powder and warm water in a small bowl.",
+          "Let sit for 2–3 minutes until it forms a gel.",
+          "Use as a 1:1 replacement for 1 egg in muffins, pancakes, or cookies."
+        ]
+      }
+    ],
+    alts: ['whole_husk', 'powder_flavored']
+  },
+  powder_flavored: {
+    name: "Psyllium Husk Powder — Orange Flavor",
+    subtitle: "Flavored • Easy Daily Routine",
+    tags: ["Natural Flavor", "Beginner Friendly", "Easy to Take"],
+    desc: "All the benefits of psyllium powder with a light natural orange flavor. Makes the daily fiber routine something you actually look forward to. Great for those new to psyllium.",
+    img: "https://cdn.shopify.com/s/files/1/0255/3827/0855/products/psyllium-husk-powder-orange.jpg",
+    url: "https://www.znaturalfoods.com/products/psyllium-husk-powder",
+    why: [
+      "Natural orange flavor makes it easy to take consistently every day",
+      "Same soluble fiber content as unflavored powder — no compromise on efficacy",
+      "Perfect starter product for anyone new to psyllium supplementation"
+    ],
+    recipes: [
+      {
+        title: "Orange Fiber Refresher", emoji: "🍊",
+        time: "2 min",
+        meta: "Tastes like a light OJ — takes 2 minutes, zero excuses.",
+        img: "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "1 tsp <strong>Psyllium Husk Powder — Orange Flavor</strong>",
+          "8 oz cold water",
+          "Ice",
+          "Optional: splash of real orange juice"
+        ],
+        steps: [
+          "Add psyllium powder to cold water and stir briskly for 10 seconds.",
+          "Add ice and a splash of OJ if desired.",
+          "Drink immediately before it thickens. Follow with a glass of water."
+        ]
+      },
+      {
+        title: "Fiber Lemonade", emoji: "🍋",
+        time: "5 min",
+        meta: "A summer drink that quietly does its job.",
+        img: "https://images.pexels.com/photos/2109099/pexels-photo-2109099.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "1 tsp <strong>Psyllium Husk Powder — Orange Flavor</strong>",
+          "Juice of 1 lemon",
+          "1 tsp honey or maple syrup",
+          "8 oz cold sparkling or still water",
+          "Ice"
+        ],
+        steps: [
+          "Squeeze lemon juice into a glass and add sweetener.",
+          "Add psyllium powder and stir well for 15 seconds.",
+          "Pour over ice, top with water, and stir once more before drinking."
+        ]
+      },
+      {
+        title: "Orange Psyllium Overnight Oats", emoji: "🌾",
+        time: "5 min + overnight",
+        meta: "Prep at night, wake up to a fiber-rich breakfast.",
+        img: "https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ingredients: [
+          "½ cup rolled oats",
+          "1 tsp <strong>Psyllium Husk Powder — Orange Flavor</strong>",
+          "¾ cup almond milk",
+          "1 tbsp chia seeds",
+          "Orange zest or segments to top"
+        ],
+        steps: [
+          "Combine oats, psyllium powder, chia seeds, and almond milk in a jar.",
+          "Stir well, seal, and refrigerate overnight (minimum 6 hours).",
+          "Top with orange zest or segments in the morning and serve cold."
+        ]
+      }
+    ],
+    alts: ['whole_husk', 'powder_organic']
+  }
+};
+
+function answer(q, val, btn) {
+  answers[q] = val;
+  document.getElementById('q'+q).querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  setTimeout(() => goTo(q + 1), 280);
+}
+
+function goTo(step) {
+  ['q1','q2','q3','q4','emailGate','resultScreen'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
+  for (let i = 1; i <= 5; i++) {
+    const dot = document.getElementById('dot'+i);
+    const line = document.getElementById('line'+i);
+    if (dot) {
+      dot.classList.remove('active','done');
+      if (i < step) dot.classList.add('done');
+      else if (i === step) dot.classList.add('active');
+    }
+    if (line) {
+      line.classList.remove('done');
+      if (i < step) line.classList.add('done');
+    }
+  }
+  const map = {1:'q1', 2:'q2', 3:'q3', 4:'q4', 5:'emailGate'};
+  if (map[step]) document.getElementById(map[step]).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function getProduct() {
+  const reason = answers[1];
+  const format = answers[2];
+  const texture = answers[3];
+  const organic = answers[4];
+
+  // Baking = powder
+  if (reason === 'baking' || format === 'baking') return 'powder_organic';
+
+  // Wants flavor
+  if (texture === 'flavor') return 'powder_flavored';
+
+  // Wants whole/minimally processed
+  if (texture === 'whole') return 'whole_husk';
+
+  // Smooth + drink → powder organic (or flavored if new)
+  if (texture === 'smooth' && format === 'drink') return 'powder_organic';
+
+  // Heart health or appetite → whole husk (thicker gel = better effect)
+  if (reason === 'heart' || reason === 'appetite') return 'whole_husk';
+
+  // Digestion + food → whole husk
+  if (reason === 'digestion' && format === 'food') return 'whole_husk';
+
+  // Organic matters → powder organic
+  if (organic === 'must') return 'powder_organic';
+
+  // Default
+  return 'whole_husk';
+}
+
+function showResult() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').style.borderColor = '#dc2626';
+    document.getElementById('emailInput').focus();
+    return;
+  }
+
+  document.getElementById('emailGate').classList.remove('active');
+  document.getElementById('resultScreen').classList.add('active');
+
+  for (let i = 1; i <= 5; i++) {
+    const d = document.getElementById('dot'+i);
+    const l = document.getElementById('line'+i);
+    if (d) { d.classList.remove('active'); d.classList.add('done'); }
+    if (l) l.classList.add('done');
+  }
+
+  const key = getProduct();
+  const p = products[key];
+
+  const whyHTML = p.why.map(w => `<li>${w}</li>`).join('');
+
+  const recipesHTML = p.recipes.map(r => `
+    <div class="recipe-card">
+      <img class="recipe-img" src="${r.img}" alt="${r.title}" loading="lazy" crossorigin="anonymous" onerror="this.outerHTML='<div class=\'recipe-img-fallback\'>${r.emoji}</div>'">
+      <div class="recipe-body">
+        <div class="recipe-title">${r.title}</div>
+        <div class="recipe-meta">${r.time} • ${r.meta}</div>
+        <div class="recipe-section-label">Ingredients</div>
+        <ul class="recipe-ingredients">
+          ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
+        </ul>
+        <div class="recipe-section-label">How to Make It</div>
+        <ol class="recipe-steps">
+          ${r.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+      </div>
+    </div>
+  `).join('');
+
+  const altHTML = p.alts.map(k => {
+    const a = products[k];
+    const altTagsHTML = a.tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
+    return `
+      <div class="alt-item">
+        <img src="${a.img}" alt="${a.name}"
+          onerror="this.src='https://placehold.co/150x150/f0f7eb/23843E?text=ZNF'">
+        <div class="alt-item-body">
+          <div class="alt-name">${a.name}</div>
+          <div class="alt-subtitle">${a.subtitle}</div>
+          <div class="alt-desc">${a.desc}</div>
+          <div class="tag-chips" style="margin-bottom:16px;">${altTagsHTML}</div>
+          <a href="${a.url}" target="_blank">Shop Now →</a>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const tagsHTML = p.tags.map(t => `<span class="tag-chip">${t}</span>`).join('');
+
+  document.getElementById('resultContent').innerHTML = `
+    <div style="text-align:center;margin-bottom:4px;"><span class="best-match-tag">Best Match</span></div>
+
+    <div class="result-product-block">
+      <img class="result-product-img" src="${p.img}" alt="${p.name}"
+        onerror="this.src='https://placehold.co/220x220/f0f7eb/23843E?text=ZNF'">
+      <div class="result-product-body">
+        <div class="result-product-subtitle">${p.subtitle}</div>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="tag-chips">${tagsHTML}</div>
+        <a class="btn-shop" href="${p.url}" target="_blank">Shop Now →</a>
+      </div>
+    </div>
+
+    <div class="section-title">🎁 3 recipes matched to your answers</div>
+    <div class="usage-grid">${recipesHTML}</div>
+
+    <div class="also-label">Also Worth Trying</div>
+    <div class="alt-grid">${altHTML}</div>
+  `;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
